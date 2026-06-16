@@ -5,6 +5,76 @@ iffat khan
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Here’s how you can perform those Ansible actions step by step:
+
+---
+
+## 🗂️ A) Create and Delete Directories on Managed Node
+You can use the **`file` module** with ad‑hoc commands:
+
+- **Create a directory**
+```bash
+ansible all -m file -a "path=/tmp/testdir state=directory"
+```
+
+- **Delete a directory**
+```bash
+ansible all -m file -a "path=/tmp/testdir state=absent"
+```
+
+👉 Here, `all` means all hosts in your inventory. You can replace it with a specific host group.
+
+---
+
+## 📂 B) Copy Files to Remote Hosts
+Use the **`copy` module** with ad‑hoc commands:
+
+```bash
+ansible all -m copy -a "src=/home/user/file.txt dest=/tmp/file.txt"
+```
+
+This copies `file.txt` from your control node to `/tmp/file.txt` on the managed nodes.
+
+---
+
+## 📝 One‑Line Definition
+**Ad‑hoc command**: A one‑time Ansible command run directly from the terminal without writing a playbook, used for quick tasks like copying files or managing directories.
+
+---
+
+Would you like me to also show you how to wrap these into a **playbook** (so you can reuse them instead of running ad‑hoc commands each time)?
+
+
+
+
+
 stages config should be an array of strings or a nested array of strings up to 10 levels deep
 
 
