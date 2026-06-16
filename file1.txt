@@ -5,10 +5,10 @@ iffat khan
 
 
 
+stages config should be an array of strings or a nested array of strings up to 10 levels deep
 
 
-
-
+Property python_job is not allowed.yaml-schema: https://gitlab.com/assets/webpack/ci.dc80abdc.json(0)
 
 
 Perfect. Ye **Practical No. 6** ka clean, exam-ready version hai.
