@@ -1,2 +1,30 @@
 We are on new branch
 file is updated 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+deploy any applicationusing gitlab ci/cd
