@@ -2,3 +2,1175 @@ Hello Iffat
 NMITD
 hello world
 iffat khan
+
+
+
+
+
+
+
+
+
+Perfect. Ye **Practical No. 6** ka clean, exam-ready version hai.
+
+# Practical No. 6
+
+## Aim:
+
+Demonstrate CI/CD Workflow in GitLab using `.py`, `.bash`, and `.java` files.
+
+---
+
+# PART 1: Create GitLab Project
+
+### Step 1
+
+Login to GitLab.
+
+### Step 2
+
+Go to:
+
+```text
+Projects → Create Blank Project
+```
+
+### Step 3
+
+Enter Project Name:
+
+```text
+cicd-demo
+```
+
+### Step 4
+
+Click:
+
+```text
+Create Project
+```
+
+Purpose:
+Creates a new GitLab project for CI/CD workflow.
+
+---
+
+# PART 2: Clone Repository in Git Bash
+
+### Step 1
+
+Copy Repository URL from GitLab.
+
+### Step 2
+
+Open Git Bash.
+
+### Step 3
+
+Execute:
+
+```bash
+git clone <repository-url>
+```
+
+Example:
+
+```bash
+git clone https://gitlab.com/username/cicd-demo.git
+```
+
+### Step 4
+
+Move into project folder:
+
+```bash
+cd cicd-demo
+```
+
+Purpose:
+Creates a local copy of the GitLab repository.
+
+---
+
+# PART 3: Create Python File
+
+Create file:
+
+```text
+hello.py
+```
+
+Add:
+
+```python
+print("Hello from Python CI/CD")
+```
+
+Purpose:
+Python program used in pipeline execution.
+
+---
+
+# PART 4: Create Bash File
+
+Create file:
+
+```text
+hello.sh
+```
+
+Add:
+
+```bash
+#!/bin/bash
+
+echo "Hello from Bash CI/CD"
+pwd
+ls
+```
+
+Purpose:
+Bash script used in pipeline execution.
+
+---
+
+# PART 5: Create Java File
+
+Create file:
+
+```text
+HelloWorld.java
+```
+
+Add:
+
+```java
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello from Java CI/CD");
+    }
+}
+```
+
+Purpose:
+Java program used in CI/CD workflow.
+
+---
+
+# PART 6: Create .gitlab-ci.yml
+
+Create file:
+
+```text
+.gitlab-ci.yml
+```
+
+Add:
+
+```yaml
+stages:
+  - test
+
+python_job:
+  stage: test
+  script:
+    - python hello.py
+
+bash_job:
+  stage: test
+  script:
+    - chmod +x hello.sh
+    - ./hello.sh
+
+java_job:
+  stage: test
+  script:
+    - javac HelloWorld.java
+    - java HelloWorld
+```
+
+Purpose:
+Defines CI/CD pipeline jobs for Python, Bash and Java files.
+
+---
+
+# PART 7: Verify Files
+
+Check project files:
+
+```bash
+ls
+```
+
+Expected Files:
+
+```text
+hello.py
+hello.sh
+HelloWorld.java
+.gitlab-ci.yml
+```
+
+Purpose:
+Verifies all required files are present.
+
+---
+
+# PART 8: Add Files to Git
+
+```bash
+git add .
+```
+
+Purpose:
+Stages all project files.
+
+---
+
+# PART 9: Commit Files
+
+```bash
+git commit -m "Added Python, Bash and Java CI/CD files"
+```
+
+Purpose:
+Creates a commit containing all project files.
+
+---
+
+# PART 10: Push to GitLab
+
+```bash
+git push origin main
+```
+
+Purpose:
+Uploads project files to GitLab repository.
+
+---
+
+# PART 11: Open GitLab Pipeline
+
+### Step 1
+
+Open GitLab Project.
+
+### Step 2
+
+Go to:
+
+```text
+Build → Pipelines
+```
+
+### Step 3
+
+Open the latest pipeline.
+
+### Step 4
+
+Check:
+
+```text
+python_job
+bash_job
+java_job
+```
+
+Expected Status:
+
+```text
+Passed
+```
+
+Purpose:
+Verifies successful CI/CD execution.
+
+---
+
+# Output
+
+Pipeline executes:
+
+* Python Program
+* Bash Script
+* Java Program
+
+All jobs complete successfully.
+
+---
+
+# Viva Questions
+
+### What is CI?
+
+Continuous Integration (CI) is the practice of automatically building and testing code whenever changes are committed.
+
+---
+
+### What is CD?
+
+Continuous Delivery/Deployment (CD) automates software delivery and deployment.
+
+---
+
+### What is a Pipeline?
+
+A pipeline is a sequence of automated jobs executed in GitLab.
+
+---
+
+### What is `.gitlab-ci.yml`?
+
+It is the configuration file that defines GitLab CI/CD jobs and stages.
+
+---
+
+### What is a Job?
+
+A job is a task executed by GitLab Runner.
+
+---
+
+### What is a Stage?
+
+A stage is a collection of related jobs executed in order.
+
+---
+
+### What is GitLab Runner?
+
+GitLab Runner is an application that executes CI/CD jobs.
+
+---
+
+## Commands Summary
+
+```bash
+git clone <repository-url>
+
+cd cicd-demo
+
+git add .
+
+git commit -m "Added Python, Bash and Java CI/CD files"
+
+git push origin main
+```
+
+### Files Used
+
+#### hello.py
+
+```python
+print("Hello from Python CI/CD")
+```
+
+#### hello.sh
+
+```bash
+#!/bin/bash
+
+echo "Hello from Bash CI/CD"
+pwd
+ls
+```
+
+#### HelloWorld.java
+
+```java
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello from Java CI/CD");
+    }
+}
+```
+
+#### .gitlab-ci.yml
+
+```yaml
+stages:
+  - test
+
+python_job:
+  stage: test
+  script:
+    - python hello.py
+
+bash_job:
+  stage: test
+  script:
+    - chmod +x hello.sh
+    - ./hello.sh
+
+java_job:
+  stage: test
+  script:
+    - javac HelloWorld.java
+    - java HelloWorld
+```
+
+✅ Now you have all practicals (Git, GitLab, Docker, Ansible) in a clean format suitable for journal, viva revision, and quick execution during the exam.
+
+
+
+
+
+
+
+
+
+
+
+
+# Practical No. 12
+
+## Aim:
+
+Demonstrate Ansible Playbooks.
+
+---
+
+# PART 1: Create First Playbook
+
+## Step 1: Create Playbook File
+
+```bash
+nano firstplaybook.yml
+```
+
+---
+
+## Step 2: Add Playbook Content
+
+```yaml
+---
+- name: First Demo Ansible Playbook
+  hosts: localhost
+  connection: local
+
+  tasks:
+    - name: Print Greetings
+      debug:
+        msg: "Hello Welcome to Ansible"
+```
+
+---
+
+## Step 3: Save File
+
+Press:
+
+```text
+CTRL + X
+Y
+Enter
+```
+
+---
+
+## Step 4: Run Playbook
+
+```bash
+ansible-playbook firstplaybook.yml
+```
+
+Purpose:
+Executes the playbook and displays the greeting message.
+
+---
+
+# PART 2: Apache Installation Playbook
+
+## Step 1: Create Playbook
+
+```bash
+nano startapache.yml
+```
+
+---
+
+## Step 2: Add Content
+
+```yaml
+---
+- name: Install and Start Apache
+  hosts: localhost
+  connection: local
+  become: yes
+
+  tasks:
+    - name: Install Apache
+      apt:
+        name: apache2
+        state: present
+
+    - name: Start Apache
+      service:
+        name: apache2
+        state: started
+        enabled: yes
+```
+
+---
+
+## Step 3: Save File
+
+```text
+CTRL + X
+Y
+Enter
+```
+
+---
+
+## Step 4: Run Playbook
+
+```bash
+sudo ansible-playbook startapache.yml
+```
+
+---
+
+## Step 5: Verify Apache Status
+
+```bash
+sudo systemctl status apache2
+```
+
+---
+
+## Step 6: Open Browser
+
+Open:
+
+```text
+http://localhost
+```
+
+Expected Output:
+
+```text
+Apache Default Page
+```
+
+---
+
+# PART 3: Infrastructure as Code Playbook
+
+This playbook:
+
+* Installs Apache
+* Starts Apache Service
+* Deploys a Web Page
+
+---
+
+## Step 1: Create File
+
+```bash
+nano infraascode.yml
+```
+
+---
+
+## Step 2: Add Content
+
+```yaml
+---
+- name: Simple Infrastructure Setup
+  hosts: localhost
+  become: yes
+
+  tasks:
+
+    - name: Install Apache
+      apt:
+        name: apache2
+        state: present
+        update_cache: yes
+
+    - name: Start Apache Service
+      service:
+        name: apache2
+        state: started
+        enabled: yes
+
+    - name: Deploy index.html
+      copy:
+        content: "<h1>Hello from Ansible Infrastructure Setup</h1>"
+        dest: /var/www/html/index.html
+```
+
+---
+
+## Step 3: Save File
+
+```text
+CTRL + X
+Y
+Enter
+```
+
+---
+
+## Step 4: Syntax Check
+
+```bash
+ansible-playbook infraascode.yml --syntax-check
+```
+
+---
+
+## Step 5: Run Playbook
+
+```bash
+sudo ansible-playbook infraascode.yml
+```
+
+---
+
+## Step 6: Open Browser
+
+Open:
+
+```text
+http://localhost
+```
+
+Expected Output:
+
+```text
+Hello from Ansible Infrastructure Setup
+```
+
+---
+
+# PART 4: Deploy PHP Web Application
+
+## Step 1: Create Playbook
+
+```bash
+nano deployphp.yml
+```
+
+---
+
+## Step 2: Add Content
+
+```yaml
+---
+- name: Deploy PHP Web Application
+  hosts: localhost
+  become: yes
+
+  tasks:
+
+    - name: Install Apache and PHP
+      apt:
+        name:
+          - apache2
+          - php
+        state: present
+        update_cache: yes
+
+    - name: Deploy PHP Application
+      copy:
+        dest: /var/www/html/index.php
+        content: |
+          <?php
+          echo "<h1>Hello from Ansible and PHP Application</h1>";
+          echo "<p>Welcome to DevOps Lab</p>";
+          ?>
+
+    - name: Restart Apache
+      service:
+        name: apache2
+        state: restarted
+```
+
+---
+
+## Step 3: Save File
+
+```text
+CTRL + X
+Y
+Enter
+```
+
+---
+
+## Step 4: Syntax Check
+
+```bash
+ansible-playbook deployphp.yml --syntax-check
+```
+
+---
+
+## Step 5: Run Playbook
+
+```bash
+sudo ansible-playbook deployphp.yml
+```
+
+---
+
+## Step 6: Open Browser
+
+Open:
+
+```text
+http://localhost/index.php
+```
+
+Expected Output:
+
+```text
+Hello from Ansible and PHP Application
+Welcome to DevOps Lab
+```
+
+---
+
+# Viva Questions
+
+### What is a Playbook?
+
+An Ansible Playbook is a YAML file that contains automation tasks.
+
+---
+
+### What is YAML?
+
+YAML stands for "YAML Ain't Markup Language". It is a human-readable data format used to write Ansible Playbooks.
+
+---
+
+### What is Infrastructure as Code (IaC)?
+
+Infrastructure as Code is the process of managing infrastructure using code instead of manual configuration.
+
+---
+
+### What is the purpose of `become: yes`?
+
+It allows Ansible to execute tasks with administrator (root) privileges.
+
+---
+
+### What is the Debug Module?
+
+The debug module is used to display messages and variable values.
+
+---
+
+### What is the Copy Module?
+
+The copy module is used to copy files or content to a target machine.
+
+---
+
+### What is the Service Module?
+
+The service module is used to start, stop, restart and manage services.
+
+---
+
+## Commands Summary
+
+```bash
+ansible-playbook firstplaybook.yml
+sudo ansible-playbook startapache.yml
+sudo systemctl status apache2
+ansible-playbook infraascode.yml --syntax-check
+sudo ansible-playbook infraascode.yml
+ansible-playbook deployphp.yml --syntax-check
+sudo ansible-playbook deployphp.yml
+```
+
+
+
+
+
+# Practical No. 11
+
+## Aim:
+
+Demonstrate add-on Ansible commands.
+
+---
+
+# PART 1: Install Ansible
+
+### Step 1: Update Ubuntu Packages
+
+```bash
+sudo apt update
+```
+
+Purpose:
+Updates package information from repositories.
+
+---
+
+### Step 2: Install Ansible
+
+```bash
+sudo apt install ansible -y
+```
+
+Purpose:
+Installs Ansible on Ubuntu.
+
+---
+
+### Step 3: Verify Installation
+
+```bash
+ansible --version
+```
+
+Purpose:
+Displays installed Ansible version.
+
+---
+
+# PART 2: Create Inventory File
+
+### Step 1: Create Inventory File
+
+```bash
+nano hosts
+```
+
+Add the following content:
+
+```text
+[local]
+localhost ansible_connection=local
+```
+
+Save and Exit.
+
+---
+
+### Step 2: Verify Inventory File
+
+```bash
+cat hosts
+```
+
+Purpose:
+Displays inventory file contents.
+
+---
+
+# PART 3: Test Ansible Connectivity
+
+### Test Connection
+
+```bash
+ansible all -i hosts -m ping
+```
+
+Expected Output:
+
+```text
+localhost | SUCCESS
+```
+
+Purpose:
+Checks connectivity between Ansible and target host.
+
+---
+
+# PART 4: Demonstrate Ad-Hoc Commands
+
+## 1. Check Current User
+
+```bash
+ansible local -i hosts -m shell -a "whoami"
+```
+
+Purpose:
+Displays current logged-in user.
+
+---
+
+## 2. Check System Uptime
+
+```bash
+ansible all -i hosts -m shell -a "uptime"
+```
+
+Purpose:
+Displays system uptime information.
+
+---
+
+## 3. List Files in Home Directory
+
+```bash
+ansible all -i hosts -m shell -a "ls -la /home/$USER"
+```
+
+Purpose:
+Lists files and directories in the user's home directory.
+
+---
+
+## 4. Create a File
+
+```bash
+ansible local -i hosts -m file -a "path=/tmp/testfile.txt state=touch"
+```
+
+Purpose:
+Creates a file named testfile.txt.
+
+---
+
+## 5. Verify File Creation
+
+```bash
+ls /tmp
+```
+
+Purpose:
+Checks whether the file was created successfully.
+
+---
+
+## 6. Add Content to File
+
+```bash
+ansible local -i hosts -m shell -a "echo 'Welcome to DevOps Lab' > /tmp/testfile.txt"
+```
+
+Purpose:
+Writes content into the file.
+
+---
+
+## 7. Display File Content
+
+```bash
+ansible local -i hosts -m command -a "cat /tmp/testfile.txt"
+```
+
+Purpose:
+Displays file content.
+
+---
+
+## 8. Append Content
+
+```bash
+ansible local -i hosts -m shell -a "echo 'Ansible Practical' >> /tmp/testfile.txt"
+```
+
+Purpose:
+Appends additional content to the file.
+
+---
+
+## 9. Remove File
+
+```bash
+ansible local -i hosts -m file -a "path=/tmp/testfile.txt state=absent"
+```
+
+Purpose:
+Deletes the file.
+
+---
+
+## 10. Create Directory
+
+```bash
+ansible local -i hosts -m file -a "path=/tmp/mydir state=directory"
+```
+
+Purpose:
+Creates a directory named mydir.
+
+---
+
+## 11. Remove Directory
+
+```bash
+ansible local -i hosts -m file -a "path=/tmp/mydir state=absent"
+```
+
+Purpose:
+Deletes the directory.
+
+---
+
+# Package Management
+
+## 12. Install Nginx
+
+```bash
+sudo apt install nginx -y
+```
+
+Purpose:
+Installs Nginx web server.
+
+---
+
+### Verify Nginx
+
+```bash
+nginx -v
+```
+
+Purpose:
+Displays installed Nginx version.
+
+---
+
+## 13. Remove Nginx
+
+```bash
+sudo apt remove nginx -y
+```
+
+Purpose:
+Removes Nginx from the system.
+
+---
+
+### Verify Removal
+
+```bash
+nginx -v
+```
+
+Expected Output:
+
+```text
+command not found
+```
+
+Purpose:
+Confirms Nginx removal.
+
+---
+
+# User Management
+
+## 14. Create User
+
+```bash
+sudo adduser testuser
+```
+
+Purpose:
+Creates a new user named testuser.
+
+---
+
+### Verify User
+
+```bash
+cat /etc/passwd | grep testuser
+```
+
+Purpose:
+Checks whether the user exists.
+
+---
+
+## 15. Delete User
+
+```bash
+sudo deluser testuser
+```
+
+Purpose:
+Deletes the user.
+
+---
+
+### Verify User Deletion
+
+```bash
+cat /etc/passwd | grep testuser
+```
+
+Expected Output:
+
+```text
+No output
+```
+
+Purpose:
+Confirms successful user deletion.
+
+---
+
+# Viva Questions
+
+### What is Ansible?
+
+Ansible is an open-source automation tool used for configuration management, application deployment, and task automation.
+
+### What is an Inventory File?
+
+An inventory file contains the list of target hosts managed by Ansible.
+
+### What is an Ad-Hoc Command?
+
+An ad-hoc command is a one-line command used to perform quick tasks without writing a playbook.
+
+### What is the Ping Module?
+
+The ping module checks connectivity between Ansible controller and managed hosts.
+
+### What is a Module in Ansible?
+
+A module is a reusable unit of work executed by Ansible, such as file, shell, command, ping, etc.
+
+### Difference Between Command and Shell Module?
+
+| Command Module             | Shell Module                             |
+| -------------------------- | ---------------------------------------- |
+| Executes commands directly | Executes commands through shell          |
+| More secure                | Supports shell features like redirection |
+
+---
+
+## Commands Summary
+
+```bash
+sudo apt update
+sudo apt install ansible -y
+ansible --version
+nano hosts
+cat hosts
+ansible all -i hosts -m ping
+ansible local -i hosts -m shell -a "whoami"
+ansible all -i hosts -m shell -a "uptime"
+ansible all -i hosts -m shell -a "ls -la /home/$USER"
+ansible local -i hosts -m file -a "path=/tmp/testfile.txt state=touch"
+ansible local -i hosts -m command -a "cat /tmp/testfile.txt"
+ansible local -i hosts -m file -a "path=/tmp/testfile.txt state=absent"
+ansible local -i hosts -m file -a "path=/tmp/mydir state=directory"
+ansible local -i hosts -m file -a "path=/tmp/mydir state=absent"
+sudo apt install nginx -y
+nginx -v
+sudo apt remove nginx -y
+sudo adduser testuser
+sudo deluser testuser
+```
+
+⚠️ Exam tip: Agar lab mein Ansible install na ho ya WSL issue kare, to kam se kam **inventory file, ping module, file module, shell module aur user management commands** yaad rakhna. Yehi sabse zyada pooche jaate hain.
+
+
+
+https://tinyurl.com/iffatdevops
