@@ -1,2 +1,118 @@
 KHAN IFFAT AIJAZ
 C25056
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#### 1. **Prepare Your Application**
+- Make sure your application code is pushed to a GitLab repository.
+- Include necessary configuration files (e.g., `Dockerfile`, `requirements.txt`, etc.).
+
+#### 2. **Create `.gitlab-ci.yml`**
+This file defines your pipeline stages. Place it in the root of your repository.
+
+Example for a simple Node.js app deployment:
+
+```yaml
+stages:
+  - build
+  - test
+  - deploy
+
+build-job:
+  stage: build
+  script:
+    - echo "Installing dependencies..."
+    - npm install
+
+test-job:
+  stage: test
+  script:
+    - echo "Running tests..."
+    - npm test
+
+deploy-job:
+  stage: deploy
+  script:
+    - echo "Deploying application..."
+    - ssh user@server "cd /var/www/app && git pull && npm install && pm2 restart app"
+  only:
+    - main
+```
+
+---
+
+#### 3. **Configure Runners**
+- GitLab CI/CD requires **runners** to execute jobs.
+- Use GitLab’s shared runners or set up your own (e.g., Docker runner, shell runner).
+
+#### 4. **Set Environment Variables**
+- Go to **GitLab → Settings → CI/CD → Variables**.
+- Add secrets like `SSH_PRIVATE_KEY`, `DATABASE_URL`, or `API_KEY`.
+
+#### 5. **Deployment Options**
+- **SSH Deployment**: As shown above, pull code on a remote server.
+- **Docker/Kubernetes**: Build Docker images and push to a registry, then deploy with Kubernetes.
+- **GitLab Pages**: For static sites, use GitLab Pages.
+
+Example for Docker deployment:
+
+```yaml
+deploy-job:
+  stage: deploy
+  script:
+    - docker build -t myapp:latest .
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker push $CI_REGISTRY/myproject/myapp:latest
+```
+
+---
+
+### ✅ Key Tips
+- Use **artifacts** to pass build outputs between stages.
+- Protect your **main branch** so only tested code gets deployed.
+- Add **manual jobs** for production deployment to avoid accidental releases.
+
+---
+
+Would you like me to tailor this pipeline for a **specific type of application** (like Python, Java, or Dockerized microservices)? That way, I can give you a ready‑to‑use `.gitlab-ci.yml` example for your exact stack.
